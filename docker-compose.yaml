@@ -17,7 +17,7 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      TZ: "Asia/Tokyo"
+      # TZ: "Asia/Tokyo"
     command:
       - "postgres"
       - "-c"
@@ -46,8 +46,8 @@ services:
     container_name: mlflow
     environment:
       MLFLOW_S3_ENDPOINT_URL: ${MINIO_URL}
-      AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
-      AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
+      # AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
+      # AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
     volumes:
       - ${MOUNT_PATH}:/home/work
     ports:
@@ -89,8 +89,8 @@ services:
         read_only: true
     environment:
       TZ: Asia/Tokyo
-      AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
-      AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
+      # AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
+      # AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
       MLFLOW_S3_ENDPOINT_URL: ${MINIO_URL}
       PREFECT__SERVER__HOST: http://172.17.0.1
       PREFECT__SERVER__PORT: 4200
@@ -261,8 +261,8 @@ services:
     environment:
       PREFECT__SERVER__HOST: http://172.17.0.1
       PREFECT__SERVER__PORT: 4200
-      AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
-      AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
+      # AWS_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY}
+      # AWS_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY}
     volumes:
       - ${MOUNT_PATH}:/home/work
     command: >
